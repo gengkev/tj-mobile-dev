@@ -1,0 +1,31 @@
+<resources>
+    <string name="preference_file_key">io.github.gengkev.exampleapp.PREFERENCE_FILE_KEY</string>
+
+    <string name="app_name">Example App</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="assgn3_label">Assignment 3</string>
+    <string name="assgn3_hello">Hello, I\'m a TextView.</string>
+    <string name="assgn3_textview_pressed">%1$s pressed %2$d times</string>
+    <string name="assgn3_button_pressed">Button pressed</string>
+    <string name="assgn3_button_label">Button</string>
+    <string name="assgn3_textview_label_1">TextView 1</string>
+    <string name="assgn3_textview_label_2">TextView 2</string>
+    <string name="assgn3_textview_label_3">TextView 3</string>
+    <string name="assgn3_textview_label_4">TextView 4</string>
+
+    <string name="assgn4_label">Assignment 4</string>
+    <string name="assgn4_temp">Temporary</string>
+    <string name="assgn4_persist">Persistent</string>
+    <string name="assgn4_clear">Clear</string>
+    <string name="assgn4_count_label">%1$s: %2$d</string>
+    <string name="assgn4_onCreate">onCreate</string>
+    <string name="assgn4_onStart">onStart</string>
+    <string name="assgn4_onResume">onResume</string>
+    <string name="assgn4_onPause">onPause</string>
+    <string name="assgn4_onStop">onStop</string>
+    <string name="assgn4_onRestart">onRestart</string>
+    <string name="assgn4_onDestroy">onDestroy</string>
+
+    <string name="assgn5_label">Assignment 5</string>
+</resources>
