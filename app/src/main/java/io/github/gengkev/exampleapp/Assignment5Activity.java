@@ -1,9 +1,10 @@
 package io.github.gengkev.exampleapp;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
 public class Assignment5Activity extends AppCompatActivity {
@@ -22,12 +23,12 @@ public class Assignment5Activity extends AppCompatActivity {
 
         final Vibrator vibratorService = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         for (final MyTextView view : views) {
-            final Context context = this;
-            view.setOnClickListener(new View.OnClickListener() {
+            view.setOnTouchListener(new View.OnTouchListener() {
                 @Override
-                public void onClick(View v) {
-                    vibratorService.vibrate(50);
+                public boolean onTouch(View v, MotionEvent event) {
+                    vibratorService.vibrate(20);
                     view.incrementAndUpdate();
+                    return false;
                 }
             });
         }

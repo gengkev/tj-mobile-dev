@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/assgn4_temp" />
 
         <TextView
@@ -86,10 +86,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Persistent"
             />
-
 
         <TextView
             android:id="@+id/assgn4_onCreate_counterPersist"
