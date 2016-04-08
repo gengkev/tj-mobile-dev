@@ -61,4 +61,11 @@
         <item>Marshmallow</item>
     </string-array>
 
+
+    <!-- Assignment 7 -->
+    <string name="assgn7_num">Assignment 7</string>
+    <string name="assgn7_label">Implicit intents</string>
+    <string name="assgn7_button_label">Select an image</string>
+
+
 </resources>

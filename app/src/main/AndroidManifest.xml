@@ -3,6 +3,7 @@
     package="io.github.gengkev.exampleapp" >
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,6 @@
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -40,6 +40,10 @@
             android:label="@string/assgn6_label_helper"
             android:parentActivityName=".Assignment6Activity"
             android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".Assignment7Activity"
+            android:label="@string/assgn7_label"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

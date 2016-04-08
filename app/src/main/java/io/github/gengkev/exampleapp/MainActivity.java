@@ -32,19 +32,22 @@ public class MainActivity extends AppCompatActivity {
                 Assignment3Activity.class,
                 Assignment4Activity.class,
                 Assignment5Activity.class,
-                Assignment6Activity.class
+                Assignment6Activity.class,
+                Assignment7Activity.class
         };
         final String[] assgnTitles = {
                 getString(R.string.assgn3_label),
                 getString(R.string.assgn4_label),
                 getString(R.string.assgn5_label),
-                getString(R.string.assgn6_label)
+                getString(R.string.assgn6_label),
+                getString(R.string.assgn7_label)
         };
         final String[] assgnNums = {
                 getString(R.string.assgn3_num),
                 getString(R.string.assgn4_num),
                 getString(R.string.assgn5_num),
-                getString(R.string.assgn6_num)
+                getString(R.string.assgn6_num),
+                getString(R.string.assgn7_num)
         };
 
 
