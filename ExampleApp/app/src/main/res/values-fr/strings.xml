@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App exemplaire</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="assgn_num_title">Tâche %1$s</string>
+
+
+    <!-- Assignment 3 -->
+    <string name="assgn3_label">OnClick et infos de débogage</string>
+    <string name="assgn3_hello">Bonjour, je suis un TextView.</string>
+    <string name="assgn3_textview_pressed">%1$s appuyé %2$d fois</string>
+    <string name="assgn3_button_pressed">Bouton appuyé</string>
+    <string name="assgn3_button_label">Bouton</string>
+    <string name="assgn3_textview_label_1">TextView 1</string>
+    <string name="assgn3_textview_label_2">TextView 2</string>
+    <string name="assgn3_textview_label_3">TextView 3</string>
+    <string name="assgn3_textview_label_4">TextView 4</string>
+
+
+    <!-- Assignment 4 -->
+    <string name="assgn4_label">Cycle de vie du Activity</string>
+    <string name="assgn4_temp">Temporaire</string>
+    <string name="assgn4_persist">Persistant</string>
+    <string name="assgn4_clear">Effacer</string>
+
+
+    <!-- Assignment 5 -->
+    <string name="assgn5_label">Sous-classe du View</string>
+
+
+    <!-- Assignment 6 -->
+    <string name="assgn6_label">Intents</string>
+    <string name="assgn6_label_helper">Intents (auxiliaire)</string>
+    <string name="assgn6_select_button">Selectionner</string>
+    <string name="assgn6_done_button">Terminé</string>
+    <string name="assgn6_item_select">Quel objet voudriez-vous?</string>
+    <string name="assgn6_number_select">Combien voudriez-vous?</string>
+    <string name="assgn6_item_label">Objet</string>
+    <string name="assgn6_number_label">Objets demandés</string>
+    <string-array name="assgn6_items_array">
+        <item>Petit gâteau</item>
+        <item>Beignet</item>
+        <item>Éclair</item>
+        <item>Froyo</item>
+        <item>Pain d\'épice</item>
+        <item>Rayon de miel</item>
+        <item>Sandwich à la crème glacée</item>
+        <item>Jelly bean</item>
+        <item>KitKat</item>
+        <item>Sucette</item>
+        <item>Guimauve</item>
+    </string-array>
+
+
+    <!-- Assignment 7 -->
+    <string name="assgn7_label">Intents implicites</string>
+    <string name="assgn7_button_label">Selectionner une image</string>
+
+
+    <!-- Assignemnt 9 -->
+    <string name="assgn9_label">AsyncTask</string>
+    <string name="assgn9_initial_text">Bonjour, monde.</string>
+    <string name="assgn9_progress_text">Chargement de rien&#8230; (%1$2.0f %%)</string>
+    <string name="assgn9_done_text">Chargement de rien terminé!</string>
+    <string name="assgn4_count_label">%1$s : %2$d</string>
+
+</resources>

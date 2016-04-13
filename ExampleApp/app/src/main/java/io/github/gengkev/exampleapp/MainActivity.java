@@ -33,22 +33,41 @@ public class MainActivity extends AppCompatActivity {
                 Assignment4Activity.class,
                 Assignment5Activity.class,
                 Assignment6Activity.class,
-                Assignment7Activity.class
+                Assignment7Activity.class,
+                Assignment9Activity.class
         };
         final String[] assgnTitles = {
                 getString(R.string.assgn3_label),
                 getString(R.string.assgn4_label),
                 getString(R.string.assgn5_label),
                 getString(R.string.assgn6_label),
-                getString(R.string.assgn7_label)
+                getString(R.string.assgn7_label),
+                getString(R.string.assgn9_label)
         };
+
         final String[] assgnNums = {
                 getString(R.string.assgn3_num),
                 getString(R.string.assgn4_num),
                 getString(R.string.assgn5_num),
                 getString(R.string.assgn6_num),
-                getString(R.string.assgn7_num)
+                getString(R.string.assgn7_num),
+                getString(R.string.assgn9_num)
         };
+
+        int N = assgnActivities.length;
+        if (BuildConfig.DEBUG) {
+            if (N != assgnTitles.length) {
+                throw new RuntimeException();
+            }
+            if (N != assgnNums.length) {
+                throw new RuntimeException();
+            }
+        }
+
+        final String[] assgnNumTitles = new String[N];
+        for (int i = 0; i < N; i++) {
+            assgnNumTitles[i] = getString(R.string.assgn_num_title, assgnNums[i]);
+        }
 
 
         // RecyclerView stuff
@@ -63,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        MainAdapter adapter = new MainAdapter(assgnNums, assgnTitles);
+        MainAdapter adapter = new MainAdapter(assgnNumTitles, assgnTitles);
         recyclerView.setAdapter(adapter);
 
         // set click listener

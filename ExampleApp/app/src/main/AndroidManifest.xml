@@ -19,30 +19,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Assignment3Activity"
+        <activity android:name=".Assignment3Activity"
             android:label="@string/assgn3_label"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Assignment4Activity"
+        <activity android:name=".Assignment4Activity"
             android:label="@string/assgn4_label"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Assignment5Activity"
+        <activity android:name=".Assignment5Activity"
             android:label="@string/assgn5_label"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Assignment6Activity"
+        <activity android:name=".Assignment6Activity"
             android:label="@string/assgn6_label"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Assignment6HelperActivity"
+        <activity android:name=".Assignment6HelperActivity"
             android:label="@string/assgn6_label_helper"
             android:parentActivityName=".Assignment6Activity"
             android:windowSoftInputMode="stateVisible" />
-        <activity
-            android:name=".Assignment7Activity"
+        <activity android:name=".Assignment7Activity"
             android:label="@string/assgn7_label"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Assignment9Activity"
+            android:label="@string/assgn9_label"
             android:parentActivityName=".MainActivity" />
     </application>
 

@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Example App</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="assgn_num_title">Assignment %1$s</string>
 
 
     <!-- Assignment 3 -->
-    <string name="assgn3_num">Assignment 3</string>
+    <string name="assgn3_num" translatable="false">3</string>
     <string name="assgn3_label">OnClick and debug info</string>
     <string name="assgn3_hello">Hello, I\'m a TextView.</string>
     <string name="assgn3_textview_pressed">%1$s pressed %2$d times</string>
@@ -17,28 +18,28 @@
 
 
     <!-- Assignment 4 -->
-    <string name="assgn4_num">Assignment 4</string>
+    <string name="assgn4_num" translatable="false">4</string>
     <string name="assgn4_label">Activity lifecycle</string>
     <string name="assgn4_temp">Temporary</string>
     <string name="assgn4_persist">Persistent</string>
     <string name="assgn4_clear">Clear</string>
     <string name="assgn4_count_label">%1$s: %2$d</string>
-    <string name="assgn4_onCreate">onCreate</string>
-    <string name="assgn4_onStart">onStart</string>
-    <string name="assgn4_onResume">onResume</string>
-    <string name="assgn4_onPause">onPause</string>
-    <string name="assgn4_onStop">onStop</string>
-    <string name="assgn4_onRestart">onRestart</string>
-    <string name="assgn4_onDestroy">onDestroy</string>
+    <string name="assgn4_onCreate" translatable="false">onCreate</string>
+    <string name="assgn4_onStart" translatable="false">onStart</string>
+    <string name="assgn4_onResume" translatable="false">onResume</string>
+    <string name="assgn4_onPause" translatable="false">onPause</string>
+    <string name="assgn4_onStop" translatable="false">onStop</string>
+    <string name="assgn4_onRestart" translatable="false">onRestart</string>
+    <string name="assgn4_onDestroy" translatable="false">onDestroy</string>
 
 
     <!-- Assignment 5 -->
-    <string name="assgn5_num">Assignment 5</string>
+    <string name="assgn5_num" translatable="false">5</string>
     <string name="assgn5_label">Subclassing a view</string>
 
 
     <!-- Assignment 6 -->
-    <string name="assgn6_num">Assignment 6</string>
+    <string name="assgn6_num" translatable="false">6</string>
     <string name="assgn6_label">Intents</string>
     <string name="assgn6_label_helper">Intents (helper)</string>
     <string name="assgn6_select_button">Select</string>
@@ -63,9 +64,16 @@
 
 
     <!-- Assignment 7 -->
-    <string name="assgn7_num">Assignment 7</string>
+    <string name="assgn7_num" translatable="false">7</string>
     <string name="assgn7_label">Implicit intents</string>
     <string name="assgn7_button_label">Select an image</string>
 
+
+    <!-- Assignemnt 9 -->
+    <string name="assgn9_num" translatable="false">9</string>
+    <string name="assgn9_label">AsyncTask</string>
+    <string name="assgn9_initial_text">Hello, world.</string>
+    <string name="assgn9_progress_text">Loading nothing&#8230; (%1$2.0f %%)</string>
+    <string name="assgn9_done_text">Finished loading nothing!</string>
 
 </resources>
