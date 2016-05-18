@@ -293,7 +293,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     private void userLogin(String email, String password) {
-        Firebase ref = new Firebase("https://pandowdy.firebaseio.com");
+        Firebase ref = new Firebase(getString(R.string.firebase_url));
         ref.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
     tools:context="io.github.gengkev.firebaseapp.SplashActivity">
 
     <WebView
@@ -20,25 +21,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="32dp"
             android:textSize="44sp"
             android:gravity="center"
             android:textColor="@android:color/primary_text_dark"
-            android:fontFamily=""
-            android:text="Firebase App" />
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:text="@string/app_name" />
 
         <Button
             android:id="@+id/register_button"
-            android:layout_width="240dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
             android:theme="@style/SomeButtonStyle"
-            android:text="Sign up" />
+            android:text="@string/action_register" />
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="240dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log in" />
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:text="@string/action_sign_in" />
 
     </LinearLayout>
 

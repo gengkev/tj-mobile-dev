@@ -13,7 +13,6 @@ import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
@@ -54,24 +54,27 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private EditText mConfirmPasswordView;
     private View mProgressView;
     private View mLoginFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
         setupActionBar();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mConfirmPasswordView = (EditText) findViewById(R.id.confirm_password);
+
+        mConfirmPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                    attemptRegister();
                     return true;
                 }
                 return false;
@@ -82,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                attemptRegister();
             }
         });
 
@@ -149,7 +152,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    private void attemptLogin() {
+    private void attemptRegister() {
         // Reset errors.
         mEmailView.setError(null);
         mPasswordView.setError(null);
@@ -157,6 +160,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         // Store values at the time of the login attempt.
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
+        String confirmPassword = mConfirmPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -165,6 +169,10 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
+            cancel = true;
+        } else if (!password.equals(confirmPassword)) {
+            mConfirmPasswordView.setError(getString(R.string.error_password_mismatch));
+            focusView = mConfirmPasswordView;
             cancel = true;
         }
 
@@ -291,15 +299,15 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         mEmailView.setAdapter(adapter);
     }
 
-    private void userRegister(String email, String password) {
-        Firebase ref = new Firebase("https://pandowdy.firebaseio.com");
+    private void userRegister(final String email, final String password) {
+        Firebase ref = new Firebase(getString(R.string.firebase_url));
         ref.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
             @Override
             public void onSuccess(Map<String, Object> result) {
                 Log.i(TAG, "Successfully created user account with uid: " + result.get("uid"));
-                showProgress(false);
-                finish();
+                userLogin(email, password);
             }
+
             @Override
             public void onError(FirebaseError error) {
                 Log.e(TAG, "Firebase error: " + error);
@@ -309,6 +317,42 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                     case FirebaseError.EMAIL_TAKEN:
                         mEmailView.setError(getString(R.string.error_email_in_use));
                         mEmailView.requestFocus();
+                        break;
+                    default:
+                        Toast.makeText(
+                                RegisterActivity.this,
+                                "Unknown Firebase error: " + error.getMessage(),
+                                Toast.LENGTH_LONG
+                        ).show();
+                        break;
+                }
+            }
+        });
+    }
+
+    private void userLogin(String email, String password) {
+        Firebase ref = new Firebase(getString(R.string.firebase_url));
+        ref.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+            @Override
+            public void onAuthenticated(AuthData authData) {
+                Log.i(TAG, "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+                showProgress(false);
+                finish();
+            }
+
+            @Override
+            public void onAuthenticationError(FirebaseError error) {
+                Log.e(TAG, "Firebase error: " + error);
+                showProgress(false);
+
+                switch (error.getCode()) {
+                    case FirebaseError.USER_DOES_NOT_EXIST:
+                        mEmailView.setError(getString(R.string.error_incorrect_email));
+                        mEmailView.requestFocus();
+                        break;
+                    case FirebaseError.INVALID_PASSWORD:
+                        mPasswordView.setError(getString(R.string.error_incorrect_password));
+                        mPasswordView.requestFocus();
                         break;
                     default:
                         Toast.makeText(
