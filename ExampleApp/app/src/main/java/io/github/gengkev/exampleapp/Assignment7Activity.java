@@ -45,7 +45,9 @@ public class Assignment7Activity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             Uri returnUri = data.getData();
             Bitmap bitmap = readBitmapFromUri(returnUri, 600, 600);
-            mImageView.setImageBitmap(bitmap);
+
+            Bitmap newBitmap = processBitmap(bitmap);
+            mImageView.setImageBitmap(newBitmap);
         }
     }
 
@@ -112,5 +114,35 @@ public class Assignment7Activity extends AppCompatActivity {
         }
 
         return inSampleSize;
+    }
+
+    private static Bitmap processBitmap(Bitmap bitmap) {
+        int W = bitmap.getWidth(), H = bitmap.getHeight();
+        int[] pixels = new int[W * H];
+        bitmap.getPixels(pixels, 0, W, 0, 0, W, H);
+
+        int[] pixels2 = new int[W * H];
+
+        for (int i = 0; i < H; i++) {
+            for (int j = 0; j < W; j++) {
+                int p = i*W + j;
+                int c = pixels[p];
+
+                int r = (c >> 16) & 0xff;
+                int g = (c >> 8) & 0xff;
+                int b = c & 0xff;
+
+                r = 255 - r;
+                g = 255 - g;
+                b = 255 - b;
+
+                int c2 = (c & ~0xffffff) | (r << 16) | (g << 8) | (b);
+                pixels[p] = c2;
+            }
+        }
+
+        Bitmap newBitmap = Bitmap.createBitmap(W, H, bitmap.getConfig());
+        newBitmap.setPixels(pixels, 0, W, 0, 0, W, H);
+        return newBitmap;
     }
 }
